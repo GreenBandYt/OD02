@@ -24,14 +24,12 @@ queue.enqueue('действие 2')
 queue.enqueue('действие 3')
 queue.enqueue('действие 4')
 
-
 print(queue.size())
 
 print(queue.dequeue())
 
 print(queue.size())
 
-print(queue.is_empty())
 
 
 

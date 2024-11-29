@@ -1,34 +1,34 @@
-class Queue:
+class Node():
 
-    def __init__(self):
-        self.items = []
+    def __init__(self, key):
 
-    def is_empty(self):
-        return self.items == []
+        self.left = None
+        self.right = None
+        self.value = key
 
-    def enqueue(self, item):
-        self.items.insert(0, item)
 
-    def dequeue(self):
-        return self.items.pop()
+def insert(root, key):
+    if root is None:
+        return Node(key)
+    else:
+        if root.value < key:
+            root.right = insert(root.right, key)
+        else:
+            root.left = insert(root.left, key)
 
-    def size(self):
-        return len(self.items)
+    return root
 
-queue = Queue()
+root = Node(70)
 
-print(queue.is_empty())
+root = insert(root, 30)
+root = insert(root, 56)
+root = insert(root, 89)
+root = insert(root, 45)
+root = insert(root, 60)
+root = insert(root, 73)
+root = insert(root, 98)
+root = insert(root, 84)
 
-queue.enqueue('действие 1')
-queue.enqueue('действие 2')
-queue.enqueue('действие 3')
-queue.enqueue('действие 4')
-
-print(queue.size())
-
-print(queue.dequeue())
-
-print(queue.size())
 
 
 
