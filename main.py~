@@ -1,26 +1,37 @@
-class Stack:
+class Queue:
+
     def __init__(self):
         self.items = []
 
-    def isEmpty(self):
+    def is_empty(self):
         return self.items == []
 
-    def push(self, item):
-        self.items.append(item)
+    def enqueue(self, item):
+        self.items.insert(0, item)
 
-    def pop(self):
+    def dequeue(self):
         return self.items.pop()
 
-    def peek(self):
-        return self.items[len(self.items)-1]
+    def size(self):
+        return len(self.items)
 
-stack = Stack()
+queue = Queue()
 
-print(stack.isEmpty())
+print(queue.is_empty())
 
-stack.push(1)
-stack.push(2)
-stack.push(3)
+queue.enqueue('действие 1')
+queue.enqueue('действие 2')
+queue.enqueue('действие 3')
+queue.enqueue('действие 4')
 
 
-print(stack.peek())
+print(queue.size())
+
+print(queue.dequeue())
+
+print(queue.size())
+
+print(queue.is_empty())
+
+
+
