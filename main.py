@@ -1,35 +1,23 @@
-class Node():
+class Graph:
+    def __init__(self):
+        self.graph = {}
 
-    def __init__(self, key):
+    def add_edge(self, u, v):
+        if u not in self.graph:
+            self.graph[u] = []
+        self.graph[u].append(v)
 
-        self.left = None
-        self.right = None
-        self.value = key
+    def print_graph(self):
+        for node in self.graph:
+            print(f"{node} -> {', '.join(map(str, self.graph[node]))}")
 
+graph = Graph()
+graph.add_edge(0,1)
+graph.add_edge(0,4)
+graph.add_edge(1,2)
+graph.add_edge(1,3)
+graph.add_edge(1,4)
+graph.add_edge(2,3)
+graph.add_edge(3,4)
 
-def insert(root, key):
-    if root is None:
-        return Node(key)
-    else:
-        if root.value < key:
-            root.right = insert(root.right, key)
-        else:
-            root.left = insert(root.left, key)
-
-    return root
-
-root = Node(70)
-
-root = insert(root, 30)
-root = insert(root, 56)
-root = insert(root, 89)
-root = insert(root, 45)
-root = insert(root, 60)
-root = insert(root, 73)
-root = insert(root, 98)
-root = insert(root, 84)
-
-
-
-
-
+graph.print_graph()
